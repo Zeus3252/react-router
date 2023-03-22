@@ -1,25 +1,28 @@
-import React from 'react';
-import { Switch, Route, Routes } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Contact from './components/Contact';
-import About from './components/About'; 
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import Navbar from "./components/Navbar";
+import Card from "./components/Card";
+import ComingSoon from "./components/ComingSoon";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Switch>       
-          <Route exact path="/" component={Home} />
-          <Route path= '/about' component={About} />
-          <Route path= '/contact' component={Contact} />        
-        
-          </Switch>    
+    <BrowserRouter>
+    <div className="App">
+    <Navbar />
+      <Routes>
+          <Route exact path="/" element={<Home />} /> 
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/comingsoon" element={<ComingSoon />} />
+          <Route path="/card/:user" element={<Card />} />
+      </Routes>
       </div>
-    </Router>    
+    </BrowserRouter>
+
   );
 }
- 
+
 export default App;
